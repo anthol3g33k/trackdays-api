@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send({'ok': 1});
-});
+  console.log("Hello World")
+  res.send({'ok': true})
+})
 
-module.exports = router;
+module.exports = router

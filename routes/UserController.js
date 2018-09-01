@@ -24,7 +24,7 @@ router.get('/:id', function(req, res, next) {
 /* POST user. */
 router.post('/', function(req, res, next) {
   let user = new User(req.body)
-  user.validate(function(err) { console.log(err) })
+  user.validate(function(err) { if (err) logger.error(err) })
   user.save()
     .then(userSaved => { return res.send(userSaved) })
     .catch(err => { return res.status(500).send({'error': err}) })

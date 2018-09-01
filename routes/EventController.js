@@ -3,7 +3,7 @@ var router = express.Router()
 var config = require('config')
 var Event = require('../models/EventModel')
 
-/* GET users list. */
+/* GET events list. */
 router.get('/', function(req, res, next) {
   Event.find().exec(function(err, events) {
     if (err) return res.status(500).send({'error': err})
@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   })
 })
 
-/* GET user by id. */
+/* GET event by id. */
 router.get('/:id', function(req, res, next) {
   var id = req.params.id
   Event.findOne({_id: id}).exec(function(err, event) {
@@ -21,16 +21,16 @@ router.get('/:id', function(req, res, next) {
   })
 })
 
-/* POST user. */
+/* POST event. */
 router.post('/', function(req, res, next) {
   let event = new Event(req.body)
-  event.validate(function(err) { console.log(err) })
+  event.validate(function(err) { if (err) console.log(err) })
   event.save()
     .then(eventSaved => { return res.send(eventSaved) })
     .catch(err => { return res.status(500).send({'error': err}) })
 })
 
-/* PUT user by id */
+/* PUT event by id */
 router.put('/:id', function(req, res, next) {
   var id = req.params.id
   let event = new Event(req.body)

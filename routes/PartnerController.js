@@ -24,7 +24,7 @@ router.get('/:id', function(req, res, next) {
 /* POST partner. */
 router.post('/', function(req, res, next) {
   let partner = new Partner(req.body)
-  partner.validate(function(err) { console.log(err) })
+  partner.validate(function(err) { if (err) console.log(err) })
   partner.save()
     .then(partnerSaved => { return res.send(partnerSaved) })
     .catch(err => { return res.status(500).send({'error': err}) })
