@@ -1,5 +1,5 @@
 {
   "mongodb": {
-      "uri": "mongodb://localhost:27017/trackdays"
+      "uri": "mongodb://heroku_rqknj62v:pmat5rem2uc9k404edj7f7vnfv@ds157809.mlab.com:57809/heroku_rqknj62v"
     }
 }
