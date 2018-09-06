@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var config = require('config')
 var Event = require('../models/EventModel')
+var VerifyToken = require('./VerifyToken')
 
 /* GET events list. */
 router.get('/', function(req, res, next) {
